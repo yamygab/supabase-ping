@@ -12,9 +12,5 @@ jobs:
     steps:
     - name: Ping Supabase Health Check
       run: |
-        curl -X GET \
-        -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \ # <--- ADDED THIS LINE
-        "https://zwqsnvuhsokcvolgwkid.supabase.co/functions/v1/super-handler/health" || echo "Ping failed"
-      env:
-        # This environment variable is now used in the curl command above
-        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        curl -X GET -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" "https://zwqsnvuhsokcvolgwkid.supabase.co/functions/v1/super-handler/health" || echo "Ping failed"
+      
