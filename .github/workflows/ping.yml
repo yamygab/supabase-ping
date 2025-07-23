@@ -2,13 +2,19 @@ name: Keep Supabase Function Warm
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # every 5 minutes UTC
-  workflow_dispatch:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *' # every 5 minutes UTC
+  workflow_dispatch: # Allows manual triggering from GitHub Actions UI
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase Health Check
-        run: |
-          curl -s https://zwqsnvuhsokcvolgwkid.functions.supabase.co/super-handler/health || echo "Ping failed"
+    - name: Ping Supabase Health Check
+      run: |
+        curl -X GET \
+        -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \ # <--- ADDED THIS LINE
+        "https://zwqsnvuhsokcvolgwkid.supabase.co/functions/v1/super-handler/health" || echo "Ping failed"
+      env:
+        # This environment variable is now used in the curl command above
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
