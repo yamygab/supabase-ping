@@ -164,10 +164,10 @@ export const getWalletAddress = async (crypto: string) => {
         return data;
     } catch (err) {
         const addresses: any = {
-            'BTC': 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
-            'ETH': '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
-            'LTC': 'ltc1qgqp5427d9290w506505671029302',
-            'USDT': 'TXj129048120948120948120948'
+            'BTC': 'bc1qpfad6xdr34q43axh5gy2ul63uk9vrq4d3kqxpk',
+            'ETH': '0x9738162f3e5DA98604ec289Bf24AbCFfe4Fc5979',
+            'LTC': 'ltc1q8qgf2mtdt84rlm8440v6p3g2p0pm6tqjzdnhmx',
+            'USDT': 'TKU7vsVR3Wi1ZKzx8PTgSaq8g5gKqgc266'
         };
         return { address: addresses[cleanCrypto] || addresses['BTC'] };
     }
