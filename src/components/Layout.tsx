@@ -156,14 +156,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </button>
                 )}
             </div>
-
-            <Link to="/cart" className="relative hover:text-white transition-colors group">
-              <ShoppingCart className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                0
-              </span>
-            </Link>
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-full hover:bg-gray-800 transition-colors focus:outline-none md:hidden"
